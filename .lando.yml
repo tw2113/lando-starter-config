@@ -1,0 +1,38 @@
+name: CHANGE-ME
+recipe: wordpress
+config:
+  webroot: .
+  xdebug: true
+  php: '7.0'
+  via: apache
+  database: mariadb
+
+services:
+  database:
+    creds:
+      user: wordpress
+      password: wordpress
+      database: wordpress
+
+  mailhog:
+    type: mailhog
+    hogfrom:
+      - appserver
+
+  node-cli:
+    type: node:8.9.3
+    globals:
+      gulp-cli: "latest"
+
+  appserver:
+    composer:
+      phpunit/phpunit: '*'
+
+proxy:
+  mailhog:
+    - mailhog.addservices.lndo.site
+
+tooling:
+  phpunit:
+    service: appserver
+    description: "Run PHPUnit Tests: lando phpunit"
