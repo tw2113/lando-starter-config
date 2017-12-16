@@ -20,7 +20,7 @@ services:
       - appserver
 
   node-cli:
-    type: node:8.9.3
+    type: node
     globals:
       gulp-cli: "latest"
 
