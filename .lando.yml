@@ -22,12 +22,7 @@ services:
   node-cli:
     type: node
     globals:
-      gulp-cli: "latest"
-
-  appserver:
-    composer:
-      phpunit/phpunit: '*'
-
+      gulp-cli: latest
 proxy:
   mailhog:
     - mailhog.addservices.lndo.site
