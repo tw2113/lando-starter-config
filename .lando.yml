@@ -6,19 +6,16 @@ config:
   php: '7.0'
   via: apache
   database: mariadb
-
 services:
   database:
     creds:
       user: wordpress
       password: wordpress
       database: wordpress
-
   mailhog:
     type: mailhog
     hogfrom:
       - appserver
-
   node-cli:
     type: node
     globals:
@@ -26,7 +23,6 @@ services:
 proxy:
   mailhog:
     - mailhog.addservices.lndo.site
-
 tooling:
   phpunit:
     service: appserver
