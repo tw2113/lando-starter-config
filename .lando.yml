@@ -31,3 +31,15 @@ tooling:
   phpunit:
     service: appserver
     description: "Run PHPUnit Tests: lando phpunit"
+  composer:
+    service: appserver
+    description: "Run Composer: lando composer"
+    cmd:
+      - composer
+      - --ansi
+  npm:
+    service: node-cli
+  node:
+    service: node-cli
+  gulp:
+    service: node-cli
